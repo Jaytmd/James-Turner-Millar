@@ -21,25 +21,19 @@
     .btn:hover{opacity:.9;}
     .section{padding:4rem 0;}
     .grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-    /* --- nav --- */
     nav{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);position:sticky;top:0;z-index:10;}
     nav .container{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;}
     nav ul{list-style:none;display:flex;gap:1.5rem;}
     nav li{font-weight:600;}
-    /* --- hero --- */
     header{background:var(--primary);color:#fff;padding:4rem 0;text-align:center;}
     header h1{font-size:2.2rem;margin-bottom:.5rem;}
-    header p{font-size:1.1rem;opacity:.9;}
-    /* --- cards --- */
     .card{background:#fff;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:2rem;text-align:center;}
     .card h3{margin-bottom:.7rem;color:var(--primary);}
-    /* --- utilities --- */
     .centre{text-align:center;}
     @media(max-width:600px){header h1{font-size:1.8rem;}}
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav>
     <div class="container">
       <strong>James Turner Millar</strong>
@@ -51,7 +45,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header>
     <h1>Football & Tennis Coach</h1>
     <p>3+ Years Coaching Individuals & Groups • Adults, Children & Teenagers</p>
@@ -59,7 +52,6 @@
     <a href="#contact" class="btn">Book a Session</a>
   </header>
 
-  <!-- ABOUT COACHING -->
   <section class="section">
     <div class="container centre">
       <h2>My Coaching Philosophy</h2>
@@ -67,7 +59,6 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="section" style="background:#fff;">
     <div class="container">
       <h2 class="centre" style="margin-bottom:2.5rem;">What I Offer</h2>
@@ -92,12 +83,75 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section class="section">
     <div class="container">
       <h2 class="centre" style="margin-bottom:2rem;">Experience Snapshot</h2>
       <ul style="max-width:700px;margin:auto;list-style:none;">
         <li style="margin-bottom:1rem;"><strong>3+ years</strong> full-time coaching in UAE schools, academies and private clubs.</li>
-        <li style="margin-bottom:1rem;"><strong>Football:</
+        <li style="margin-bottom:1rem;"><strong>Football:</strong> FA Level 2, UAE FA Grassroots, futsal certified.</li>
+        <li style="margin-bottom:1rem;"><strong>Tennis:</strong> PTR certified, cardio-tennis specialist, junior development.</li>
+        <li><strong>Clients:</strong> ESM, FitRep, Jumeirah College, private academies, corporate teams.</li>
+      </ul>
+    </div>
+  </section>
 
+  <section id="contact" class="section centre">
+    <div class="container">
+      <h2>Ready to Play?</h2>
+      <p>Book your first session or block package today.</p>
+      <a href="mailto:james@jamesturnermillar.com" class="btn">Email to Book</a>
+    </div>
+  </section>
 
+  <footer style="background:var(--dark);color:#fff;text-align:center;padding:2rem 0;font-size:.9rem;">
+    © <span id="yr"></span> James Turner Millar. All rights reserved.
+  </footer>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+  <!-- ===== AI Liaison Widget ===== -->
+  <style>
+    #liaison-root{position:fixed;bottom:20px;right:20px;width:360px;max-width:90vw;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.15);display:flex;flex-direction:column;font-size:14px;z-index:9999;}
+    #liaison-header{background:var(--primary);color:#fff;padding:.75rem 1rem;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:space-between;}
+    #liaison-close{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;}
+    #liaison-body{flex:1;height:280px;overflow-y:auto;padding:.75rem 1rem;}
+    .liaison-msg{margin:.35rem 0;line-height:1.4;}
+    .liaison-user{text-align:right;color:var(--primary);}
+    .liaison-bot{text-align:left;color:var(--dark);}
+    #liaison-input-area{border-top:1px solid #e5e5e5;display:flex;padding:.5rem;}
+    #liaison-input{flex:1;border:none;outline:none;padding:.5rem;font-size:14px;}
+    #liaison-send{background:var(--accent);color:#fff;border:none;padding:.5rem .9rem;border-radius:4px;cursor:pointer;font-weight:600;}
+    #liaison-launcher{position:fixed;bottom:20px;right:20px;background:var(--primary);color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:pointer;z-index:9998;}
+  </style>
+  <button id="liaison-launcher" title="Ask me anything">💬</button>
+  <div id="liaison-root" style="display:none;">
+    <div id="liaison-header"><span><strong>AI Liaison – James TM</strong></span><button id="liaison-close">&times;</button></div>
+    <div id="liaison-body"></div>
+    <div id="liaison-input-area"><input id="liaison-input" type="text" placeholder="Type your question…" autocomplete="off"><button id="liaison-send">Send</button></div>
+  </div>
+  <script>
+    const ENDPOINT="https://api.openai.com/v1/chat/completions";
+    const API_KEY="sk-YOUR-OPENAI-KEY";
+    const PERSONA=`You are the friendly AI liaison for James Turner Millar's multi-service website (English teaching, event management, sports coaching). Keep answers ≤ 80 words. Be conversational, upbeat, lightly sales-oriented. If a user asks for booking, collect: service type, age group, preferred contact method (email/WhatsApp), then ask for best date/time and finish with: “I’ll pass this to James—expect a reply within 2 h.” Never make up prices or guarantees beyond what's on the site.`;
+    const launcher=document.getElementById('liaison-launcher');
+    const root=document.getElementById('liaison-root');
+    const body=document.getElementById('liaison-body');
+    const input=document.getElementById('liaison-input');
+    const sendBtn=document.getElementById('liaison-send');
+    const closeBtn=document.getElementById('liaison-close');
+    let thread=[{role:"system",content:PERSONA}];
+    function addMsg(txt,who){
+      const div=document.createElement('div');div.className='liaison-msg liaison-'+who;div.textContent=txt;body.appendChild(div);body.scrollTop=body.scrollHeight;
+    }
+    async function callLLM(){
+      const userText=input.value.trim();if(!userText)return;
+      addMsg(userText,'user');input.value='';thread.push({role:"user",content:userText});
+      setTimeout(()=>{const dummy="Got it—thanks for the details! I’ll pass this straight to James and he’ll be in touch within 2 hours.";addMsg(dummy,'bot');thread.push({role:"assistant",content:dummy});},600);
+    }
+    launcher.addEventListener('click',()=>{root.style.display="flex";input.focus();});
+    closeBtn.addEventListener('click',()=>root.style.display="none");
+    sendBtn.addEventListener('click',callLLM);
+    input.addEventListener('keydown',e=>{if(e.key==="Enter")callLLM();});
+  </script>
+  <!-- ===== /AI Liaison Widget ===== -->
+</body>
+</html>
