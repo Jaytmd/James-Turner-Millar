@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>James Turner Millar | Football & Tennis Coach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --primary:#004d40;
+      --accent:#ffb300;
+      --light:#f5f7fa;
+      --dark:#222;
+      --grey:#677788;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+    body{line-height:1.6;color:var(--dark);background:var(--light);}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+    .container{width:90%;max-width:1100px;margin:auto;}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.85rem 1.9rem;border-radius:4px;font-weight:600;margin-top:1rem;transition:.25s;}
+    .btn:hover{opacity:.9;}
+    .section{padding:4rem 0;}
+    .grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    /* --- nav --- */
+    nav{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);position:sticky;top:0;z-index:10;}
+    nav .container{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;}
+    nav ul{list-style:none;display:flex;gap:1.5rem;}
+    nav li{font-weight:600;}
+    /* --- hero --- */
+    header{background:var(--primary);color:#fff;padding:4rem 0;text-align:center;}
+    header h1{font-size:2.2rem;margin-bottom:.5rem;}
+    header p{font-size:1.1rem;opacity:.9;}
+    /* --- cards --- */
+    .card{background:#fff;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:2rem;text-align:center;}
+    .card h3{margin-bottom:.7rem;color:var(--primary);}
+    /* --- utilities --- */
+    .centre{text-align:center;}
+    @media(max-width:600px){header h1{font-size:1.8rem;}}
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <strong>James Turner Millar</strong>
+      <ul>
+        <li><a href="index.html">English Teaching</a></li>
+        <li><a href="event-management.html">Event Management</a></li>
+        <li><a href="coaching.html">Coaching</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <h1>Football & Tennis Coach</h1>
+    <p>3+ Years Coaching Individuals & Groups • Adults, Children & Teenagers</p>
+    <p>Dubai + Online Sessions | Tailored Programmes for Every Level</p>
+    <a href="#contact" class="btn">Book a Session</a>
+  </header>
+
+  <!-- ABOUT COACHING -->
+  <section class="section">
+    <div class="container centre">
+      <h2>My Coaching Philosophy</h2>
+      <p style="max-width:700px;margin:auto;">Whether you’re chasing a league title, a college scholarship, or simply your first rally, I build sessions around <strong>technique, tactical awareness, fitness and fun</strong>. Clear goals, measurable progress, and a positive environment are non-negotiables.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <h2 class="centre" style="margin-bottom:2.5rem;">What I Offer</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1-on-1 Personal Coaching</h3>
+          <p>Technical breakdown, video analysis, customised drills and fitness blocks. Available for football or tennis.</p>
+        </div>
+        <div class="card">
+          <h3>Group & Team Sessions</h3>
+          <p>Small-group academies (4-8 players) or full-squad team coaching. Focus on patterns of play and match fitness.</p>
+        </div>
+        <div class="card">
+          <h3>Kids & Teen Academies</h3>
+          <p>Fun, game-based learning that builds fundamentals and keeps young athletes engaged and smiling.</p>
+        </div>
+        <div class="card">
+          <h3>Adult Social & Competitive</h3>
+          <p>From weekend warriors to league competitors—refine technique, tactics and conditioning at your pace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="container">
+      <h2 class="centre" style="margin-bottom:2rem;">Experience Snapshot</h2>
+      <ul style="max-width:700px;margin:auto;list-style:none;">
+        <li style="margin-bottom:1rem;"><strong>3+ years</strong> full-time coaching in UAE schools, academies and private clubs.</li>
+        <li style="margin-bottom:1rem;"><strong>Football:</
+
+
